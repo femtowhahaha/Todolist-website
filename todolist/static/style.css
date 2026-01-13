@@ -1,0 +1,45 @@
+
+
+.container1{
+    background-color: #efeaea; /* light gray background for the box */
+    padding: 20px;             /* space inside the box */
+    border: 2px solid #ccc;    /* border around the box */
+    border-radius: 10px;       /* rounded corners */
+    display: flex;             /* align buttons in a row */
+    gap: 20px;                 /* space between buttons */
+    justify-content: flex-end;   /* center buttons horizontally */
+    align-items: center;   
+}
+
+.container1 button {
+    padding: 15px 10px;
+    font-size: 13px;
+    color: white;
+    background-color: #2563eb;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+
+
+.page_title {
+
+    font-size: 25px;          /* bigger than buttons */
+    font-weight: bold;
+    color: #1e40af;           /* blue title */
+    margin-right: 650px; 
+    font-style: italic;
+
+}
+
+button:hover{
+    background-color: #1e40af;
+
+}
+
+body{
+
+    background-color: rgb(183, 183, 248);
+
+}

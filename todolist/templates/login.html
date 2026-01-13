@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+
+{%block page_title%}
+     <span class="page_title">Login</span>
+
+{%endblock%}
+
+{% block content %}
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                 <div class="flash-{{category}}">
+                      {{ message }}
+                     </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <body>
+        <form method="POST" action="{{url_for('login')}}">
+            {{form.hidden_tag()}}
+            <h1>{{form.username.label()}}</h1>
+            {{form.username(placeholder='Enter Username')}}
+
+            <h1>{{form.password.label()}}</h1>
+            {{form.password(placeholder='Enter Password')}}
+            <br>
+            <br>
+            {{form.login()}}
+
+
+
+        </form>
+
+    </body>
+    <style>
+        .flash-success { color: green; }
+        .flash-error { color: red; }
+    </style>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    <span class="page_title">Show List</span>
+{% endblock %}
+
+{% block content %}
+
+    <table class="todotable">
+        <thead>
+            <th scope="col"> Number </th>
+            <th scrope="col"> To-Do </th>
+            <th scope="col"> Date </th>
+            <th scope="col"> Delete </th>
+
+        </thead>
+        
+        <tbody>
+            {% for item in todolist %}
+            {% if item.owner == current_user%}
+                <tr>
+                    <td>{{item.num}}</th>
+                    <td>{{item.todo}}</td>
+                    <td>{{item.date}}</td>
+                    <td>
+                        
+                        <form method="POST" action="{{ url_for('deletelist') }}">
+                            {{ item.form.hidden_tag() }}   
+                            {{ item.form.delete(class='btn') }}
+                        </form>
+                    </td>
+                </tr>
+            
+            {%endif%}    
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <style>
+        .todotable {
+    margin: 30px auto;        
+    border-collapse: collapse; 
+    width: 70%;               
+    text-align: left;         
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table header styling */
+.todotable thead th {
+    background-color: #2563eb;  
+    color: white;
+    padding: 12px 15px;
+    font-size: 16px;
+}
+
+/* Table body styling */
+.todotable tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row colors */
+.todotable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect */
+.todotable tbody tr:hover {
+    background-color: #e0e7ff;
+}
+
+.btn{
+    color: red;
+    background-color: aquamarine;
+
+}
+
+    </style>
+
+
+
+{% endblock %}
