@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+{% block page_title%}
+     <span class="page_title">Log out</span>
+
+{%endblock%}
+
+{% block content %}
+    <body style="text-align: center;">
+        <h1> Are you sure you want to log out? {{current_user.username}}</h1>
+        <form method="POST" action="{{url_for('logout')}}">
+            {{form.hidden_tag()}}
+            {{form.logout()}}
+        </form>
+    </body>
+{%endblock%}

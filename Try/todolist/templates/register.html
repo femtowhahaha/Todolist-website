@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+     <span class="page_title">Register</span>
+{%endblock%}
+
+{% block content %}
+    <body>
+        <form method="POST" action="{{url_for('register')}}">
+            {{form.hidden_tag()}}
+            <h1>{{form.username.label()}}</h1>
+            {{form.username(placeholder='Enter Username')}}
+
+            <h1>{{form.password1.label()}}</h1>
+            {{form.password1(placeholder='Enter Password')}}
+
+            <h1>{{form.password2.label()}}</h1>
+            {{form.password2(placeholder='Confirm Password')}}
+
+            <br>
+            <br>
+            {{form.register()}}
+
+
+
+        </form>
+
+
+
+
+
+    </body>
+
+
+{% endblock %}
